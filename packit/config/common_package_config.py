@@ -160,6 +160,7 @@ class CommonPackageConfig:
             the corresponding macro.
         status_name_template: Template for configurable names for status checks.
         sidetag_group: Sidetag group identifier for downstream Koji builds and Bodhi updates.
+        sig: Special interest group (SIG) that maintains the “downstream” package.
     """
 
     def __init__(
@@ -241,6 +242,7 @@ class CommonPackageConfig:
         require: Optional[RequirementsConfig] = None,
         status_name_template: Optional[str] = None,
         sidetag_group: Optional[str] = None,
+        sig: Optional[str] = None,
     ):
         self.config_file_path: Optional[str] = config_file_path
         self.specfile_path: Optional[str] = specfile_path
@@ -351,6 +353,7 @@ class CommonPackageConfig:
         self.upload_sources = upload_sources
 
         self.pkg_tool = pkg_tool
+        self.sig = sig
 
         self.parse_time_macros = parse_time_macros or {}
 
